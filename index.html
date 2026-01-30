@@ -6,436 +6,473 @@
     <title>Boom Schnugg Family Foundation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cereal:wght@400;500;700;800&family=Inter:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --coral: #FF6B6B;
-            --sunshine: #FFD93D;
-            --sky: #4ECDC4;
-            --lime: #A8E06C;
-            --pink: #FF8FAB;
-            --lavender: #B8A9E8;
-            --peach: #FFBE98;
-            --cream: #FFFDF7;
-            --warm-white: #FFFFFF;
-            --text-dark: #2D2A32;
-            --text-mid: #5A5662;
-            --text-light: #8E8A96;
-            --shadow-sm: 0 2px 8px rgba(45,42,50,0.06);
-            --shadow-md: 0 4px 20px rgba(45,42,50,0.08);
-            --shadow-lg: 0 8px 40px rgba(45,42,50,0.1);
-            --radius: 20px;
-            --radius-sm: 12px;
+            --rausch: #FF385C;
+            --rausch-light: #FFF0F3;
+            --rausch-dark: #E31C5F;
+            --babu: #00A699;
+            --babu-light: #E8F7F6;
+            --kazan: #484848;
+            --foggy: #767676;
+            --hof: #222222;
+            --white: #FFFFFF;
+            --cloud: #F7F7F7;
+            --hair: #EBEBEB;
+            --warm-bg: #FFFAF8;
+            --font-main: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+            --font-display: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-card: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+            --shadow-hover: 0 2px 4px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.1);
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--cream);
-            color: var(--text-dark);
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--hof);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-display);
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.2;
+            color: var(--hof);
         }
 
         /* ═══════ NAV ═══════ */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(255,253,247,0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(45,42,50,0.06);
-            padding: 0 24px;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--hair);
         }
         .nav-inner {
-            max-width: 1200px; margin: 0 auto;
+            max-width: 1120px; margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between;
             height: 64px;
+            padding: 0 24px;
         }
         .nav-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700; font-size: 1.25rem;
-            color: var(--text-dark);
-            display: flex; align-items: center; gap: 10px;
+            font-family: var(--font-display);
+            font-weight: 800; font-size: 1.15rem;
+            color: var(--rausch);
+            display: flex; align-items: center; gap: 8px;
+            letter-spacing: -0.01em;
         }
-        .nav-logo .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-        .nav-logo .dot-1 { background: var(--coral); }
-        .nav-logo .dot-2 { background: var(--sunshine); }
-        .nav-logo .dot-3 { background: var(--sky); }
-        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-logo svg { flex-shrink: 0; }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
         .nav-links a {
-            text-decoration: none; color: var(--text-mid);
-            font-size: 0.9rem; font-weight: 500;
-            transition: color 0.2s;
+            text-decoration: none;
+            color: var(--kazan);
+            font-family: var(--font-main);
+            font-size: 0.875rem; font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 24px;
+            transition: background var(--transition), color var(--transition);
         }
-        .nav-links a:hover { color: var(--text-dark); }
+        .nav-links a:hover {
+            background: var(--cloud);
+            color: var(--hof);
+        }
 
         /* ═══════ HERO ═══════ */
         .hero {
-            min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center;
             padding: 120px 24px 80px;
-            position: relative;
-            overflow: hidden;
+            background: var(--white);
         }
-        .hero-bg-shapes {
-            position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        .hero-inner {
+            max-width: 1120px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
         }
-        .hero-shape {
-            position: absolute; border-radius: 50%;
-            opacity: 0.15;
-            animation: float 8s ease-in-out infinite;
-        }
-        .hero-shape-1 { width: 400px; height: 400px; background: var(--coral); top: -100px; right: -80px; animation-delay: 0s; }
-        .hero-shape-2 { width: 300px; height: 300px; background: var(--sunshine); bottom: -50px; left: -60px; animation-delay: -2s; }
-        .hero-shape-3 { width: 250px; height: 250px; background: var(--sky); top: 30%; left: 5%; animation-delay: -4s; }
-        .hero-shape-4 { width: 200px; height: 200px; background: var(--lime); bottom: 10%; right: 10%; animation-delay: -6s; }
-        .hero-shape-5 { width: 150px; height: 150px; background: var(--pink); top: 15%; right: 25%; animation-delay: -3s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-
-        .hero-content { position: relative; z-index: 1; max-width: 800px; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: white;
-            border: 1px solid rgba(45,42,50,0.08);
-            border-radius: 100px;
-            padding: 8px 20px;
-            font-size: 0.85rem; font-weight: 500;
-            color: var(--text-mid);
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 32px;
-        }
-        .hero-badge .sparkle { font-size: 1.1rem; }
-        .hero h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
-            color: var(--text-dark);
-        }
-        .hero h1 .highlight {
-            position: relative;
-            display: inline-block;
-        }
-        .hero h1 .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 4px; left: -4px; right: -4px;
-            height: 0.3em;
-            background: var(--sunshine);
-            border-radius: 4px;
-            z-index: -1;
-            opacity: 0.6;
-        }
-        .hero-sub {
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-            color: var(--text-mid);
-            max-width: 560px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-        .hero-colors {
-            display: flex; justify-content: center; gap: 8px;
-        }
-        .hero-color-dot {
-            width: 14px; height: 14px; border-radius: 50%;
-            transition: transform 0.3s;
-        }
-        .hero-color-dot:hover { transform: scale(1.5); }
-
-        /* ═══════ SECTIONS ═══════ */
-        section { padding: 100px 24px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-
-        .section-label {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600; font-size: 0.85rem;
+        .hero-text { max-width: 520px; }
+        .hero-eyebrow {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
-        }
-        .section-label .icon {
-            width: 28px; height: 28px; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.9rem;
-        }
-        .section-title {
-            font-size: clamp(2rem, 4.5vw, 3.2rem);
-            letter-spacing: -0.02em;
+            letter-spacing: 0.1em;
+            color: var(--rausch);
             margin-bottom: 20px;
         }
-        .section-desc {
-            font-size: 1.1rem; color: var(--text-mid);
-            max-width: 600px; line-height: 1.7;
-            margin-bottom: 56px;
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--foggy);
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+        .hero-stats {
+            display: flex; gap: 40px;
+        }
+        .hero-stat-num {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--hof);
+            letter-spacing: -0.02em;
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--foggy);
+            font-weight: 500;
         }
 
-        /* ═══════ MISSION ═══════ */
-        .mission { background: var(--warm-white); }
-        .mission .section-label { color: var(--coral); }
-        .mission .section-label .icon { background: #FFF0F0; }
-
-        .values-grid {
+        .hero-mosaic {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px;
+            aspect-ratio: 1;
         }
-        .value-card {
-            background: var(--cream);
-            border-radius: var(--radius);
-            padding: 36px 32px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(45,42,50,0.04);
+        .mosaic-tile {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem;
+            position: relative;
         }
-        .value-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
+        .mosaic-tile-1 {
+            grid-row: 1 / 3;
+            background: linear-gradient(160deg, #FF385C 0%, #FF6B81 100%);
+            border-radius: var(--radius-lg);
         }
-        .value-emoji {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
-            display: block;
+        .mosaic-tile-2 {
+            background: var(--cloud);
         }
-        .value-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
+        .mosaic-tile-3 {
+            background: #FFF0E6;
         }
-        .value-card p {
-            color: var(--text-mid);
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .mosaic-tile-inner {
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 8px; text-align: center;
+            padding: 20px;
         }
-        .value-card .tag {
-            display: inline-block;
-            margin-top: 16px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .mosaic-tile-inner span {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
         }
-        .tag-coral { background: #FFF0F0; color: var(--coral); }
-        .tag-sky { background: #E8FAF8; color: #3AA89E; }
-        .tag-sunshine { background: #FFF8E0; color: #C4A320; }
-        .tag-lime { background: #F0FAE0; color: #6B9E30; }
-        .tag-pink { background: #FFF0F5; color: #D46A86; }
-        .tag-lavender { background: #F0ECF8; color: #7E6CB5; }
+        .mosaic-tile-1 .mosaic-tile-inner span { color: rgba(255,255,255,0.9); }
+        .mosaic-tile-2 .mosaic-tile-inner span { color: var(--foggy); }
+        .mosaic-tile-3 .mosaic-tile-inner span { color: var(--foggy); }
+        .mosaic-emoji { font-size: 3rem; line-height: 1; }
+        .mosaic-tile-1 .mosaic-emoji { font-size: 4rem; }
 
-        /* ═══════ ORGANIZATIONS ═══════ */
-        .orgs { background: var(--cream); }
-        .orgs .section-label { color: var(--sky); }
-        .orgs .section-label .icon { background: #E8FAF8; }
+        /* ═══════ DIVIDER ═══════ */
+        .divider {
+            max-width: 1120px;
+            margin: 0 auto;
+            height: 1px;
+            background: var(--hair);
+        }
 
-        .org-category {
+        /* ═══════ SECTIONS ═══════ */
+        section { padding: 80px 24px; }
+        .container { max-width: 1120px; margin: 0 auto; }
+
+        .section-header {
             margin-bottom: 48px;
         }
-        .org-category:last-child { margin-bottom: 0; }
-        .org-category-header {
-            display: flex; align-items: center; gap: 12px;
-            margin-bottom: 24px;
+        .section-eyebrow {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--rausch);
+            margin-bottom: 12px;
         }
-        .org-category-icon {
-            width: 44px; height: 44px;
-            border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem;
+        .section-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
         }
-        .org-category-icon.edu { background: #FFF8E0; }
-        .org-category-icon.med { background: #FFF0F0; }
-        .org-category h3 {
-            font-size: 1.3rem;
-        }
-        .org-category h3 span {
-            color: var(--text-light);
-            font-weight: 400;
-            font-size: 0.95rem;
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--foggy);
+            max-width: 560px;
+            line-height: 1.7;
         }
 
-        .org-grid {
+        /* ═══════ VALUES ═══════ */
+        .values { background: var(--white); }
+        .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .value-card {
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--hair);
+            transition: box-shadow var(--transition), transform var(--transition);
+            background: var(--white);
+        }
+        .value-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        .value-icon {
+            width: 48px; height: 48px;
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .vi-coral { background: var(--rausch-light); }
+        .vi-teal { background: var(--babu-light); }
+        .vi-peach { background: #FFF0E6; }
+        .vi-lavender { background: #F3F0FF; }
+        .vi-sky { background: #EBF5FF; }
+        .vi-sage { background: #ECF5EC; }
+        .value-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .value-card p {
+            font-size: 0.92rem;
+            color: var(--foggy);
+            line-height: 1.6;
+        }
+
+        /* ═══════ ORGANIZATIONS ═══════ */
+        .orgs { background: var(--cloud); }
+        .org-group { margin-bottom: 48px; }
+        .org-group:last-child { margin-bottom: 0; }
+        .org-group-label {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
+            color: var(--hof);
+        }
+        .org-group-label .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+        }
+        .dot-coral { background: var(--rausch); }
+        .dot-teal { background: var(--babu); }
+
+        .org-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 16px;
         }
         .org-card {
-            background: var(--warm-white);
-            border-radius: var(--radius);
-            padding: 28px 24px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 24px;
             display: flex; align-items: flex-start; gap: 16px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(45,42,50,0.04);
+            transition: box-shadow var(--transition), transform var(--transition);
+            border: 1px solid transparent;
         }
         .org-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
         }
-        .org-icon {
-            width: 48px; height: 48px; min-width: 48px;
+        .org-badge {
+            width: 44px; height: 44px; min-width: 44px;
             border-radius: var(--radius-sm);
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
+            background: var(--cloud);
         }
-        .org-card h4 { font-size: 1rem; margin-bottom: 4px; }
-        .org-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
-
-        .oc-blue { background: #EBF5FF; }
-        .oc-green { background: #E8FAE8; }
-        .oc-yellow { background: #FFF8E0; }
-        .oc-pink { background: #FFF0F5; }
-        .oc-red { background: #FFF0F0; }
-        .oc-purple { background: #F0ECF8; }
-        .oc-teal { background: #E8FAF8; }
-        .oc-orange { background: #FFF4EB; }
-        .oc-indigo { background: #EEEAFF; }
+        .org-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        .org-card p {
+            font-size: 0.82rem;
+            color: var(--foggy);
+            line-height: 1.5;
+        }
 
         /* ═══════ FAMILY ═══════ */
-        .family { background: var(--warm-white); }
-        .family .section-label { color: var(--pink); }
-        .family .section-label .icon { background: #FFF0F5; }
+        .family { background: var(--white); }
 
-        .family-layout {
+        .family-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: start;
+            gap: 24px;
         }
-        .family-main {
-            background: var(--cream);
-            border-radius: var(--radius);
-            padding: 40px;
-            border: 1px solid rgba(45,42,50,0.04);
+        .parent-card {
+            background: var(--cloud);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            transition: box-shadow var(--transition);
         }
-        .parent-section { margin-bottom: 36px; }
-        .parent-section:last-of-type { margin-bottom: 0; }
-        .parent-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem; font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .parent-role {
-            color: var(--text-mid);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-        }
-        .parent-details {
-            display: flex; flex-wrap: wrap; gap: 8px;
-        }
-        .detail-chip {
-            background: var(--warm-white);
-            border: 1px solid rgba(45,42,50,0.06);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 0.8rem;
-            color: var(--text-mid);
-            font-weight: 500;
-        }
-        .family-divider {
-            height: 1px;
-            background: rgba(45,42,50,0.06);
-            margin: 28px 0;
-        }
-
-        .family-kids {
-            display: flex; flex-direction: column; gap: 16px;
-        }
-        .kid-card {
-            background: var(--cream);
-            border-radius: var(--radius);
-            padding: 28px 28px;
-            display: flex; align-items: center; gap: 20px;
-            border: 1px solid rgba(45,42,50,0.04);
-            transition: transform 0.3s;
-        }
-        .kid-card:hover { transform: translateY(-2px); }
-        .kid-avatar {
-            width: 56px; height: 56px; min-width: 56px;
+        .parent-card:hover { box-shadow: var(--shadow-card); }
+        .parent-avatar {
+            width: 64px; height: 64px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
-        .kid-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
+        .pa-scott { background: #EBF5FF; }
+        .pa-ceecee { background: var(--rausch-light); }
+        .parent-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
         }
-        .kid-age {
-            color: var(--text-light);
-            font-size: 0.85rem;
+        .parent-role {
+            font-size: 0.95rem;
+            color: var(--rausch);
+            font-weight: 600;
+            margin-bottom: 16px;
         }
-        .kid-1 .kid-avatar { background: #EBF5FF; }
-        .kid-2 .kid-avatar { background: #FFF0F5; }
-        .kid-3 .kid-avatar { background: #F0ECF8; }
-        .kid-4 .kid-avatar { background: #E8FAF8; }
+        .parent-bio {
+            font-size: 0.92rem;
+            color: var(--foggy);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .parent-tags {
+            display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        .ptag {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 6px 14px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--kazan);
+        }
 
-        .family-location {
+        .kids-banner {
+            grid-column: 1 / -1;
+            background: var(--warm-bg);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+        .kids-banner h3 {
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+        }
+        .kids-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .kid {
+            text-align: center;
+        }
+        .kid-avatar {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            border: 3px solid var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .ka-1 { background: #EBF5FF; }
+        .ka-2 { background: #FFF0F3; }
+        .ka-3 { background: #F3F0FF; }
+        .ka-4 { background: #E8F7F6; }
+        .kid-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .kid-detail {
+            font-size: 0.82rem;
+            color: var(--foggy);
+            margin-top: 2px;
+        }
+
+        .location-strip {
             grid-column: 1 / -1;
             text-align: center;
-            padding: 32px;
-            background: var(--cream);
-            border-radius: var(--radius);
-            border: 1px solid rgba(45,42,50,0.04);
+            padding: 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--hair);
         }
-        .family-location p {
-            font-size: 1.1rem;
-            color: var(--text-mid);
+        .location-strip p {
+            font-size: 1rem;
+            color: var(--foggy);
         }
-        .family-location .loc {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            color: var(--text-dark);
+        .location-strip strong {
+            color: var(--hof);
         }
 
         /* ═══════ FOOTER ═══════ */
         footer {
-            background: var(--text-dark);
-            color: rgba(255,255,255,0.6);
-            padding: 60px 24px;
-            text-align: center;
+            background: var(--cloud);
+            border-top: 1px solid var(--hair);
+            padding: 48px 24px;
         }
-        .footer-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: white;
-            margin-bottom: 8px;
+        .footer-inner {
+            max-width: 1120px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .footer-dots {
-            display: flex; justify-content: center; gap: 6px;
-            margin: 20px 0;
+        .footer-left {
+            display: flex; align-items: center; gap: 12px;
         }
-        .footer-dot {
-            width: 8px; height: 8px; border-radius: 50%;
-            opacity: 0.8;
+        .footer-logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--rausch);
         }
-        footer p { font-size: 0.85rem; }
+        .footer-copy {
+            font-size: 0.82rem;
+            color: var(--foggy);
+        }
+        .footer-tagline {
+            font-size: 0.85rem;
+            color: var(--foggy);
+        }
 
         /* ═══════ RESPONSIVE ═══════ */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            section { padding: 72px 20px; }
-            .values-grid { grid-template-columns: 1fr; }
-            .org-grid { grid-template-columns: 1fr; }
-            .family-layout { grid-template-columns: 1fr; }
-            .hero { min-height: auto; padding: 140px 20px 80px; }
-            .family-main { padding: 28px 24px; }
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hero-mosaic { max-width: 400px; }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .family-grid { grid-template-columns: 1fr; }
+            .kids-row { grid-template-columns: repeat(2, 1fr); gap: 24px; }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.5rem; }
-            .section-title { font-size: 1.8rem; }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .hero { padding: 100px 20px 60px; }
+            section { padding: 64px 20px; }
+            .values-grid { grid-template-columns: 1fr; }
+            .org-list { grid-template-columns: 1fr; }
+            .hero-stats { gap: 24px; }
+            .hero-stat-num { font-size: 1.5rem; }
+            .kids-row { grid-template-columns: repeat(2, 1fr); }
+            .parent-card { padding: 28px 24px; }
+            .kids-banner { padding: 28px 24px; }
+            .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
         }
     </style>
 </head>
@@ -445,9 +482,10 @@
 <nav>
     <div class="nav-inner">
         <div class="nav-logo">
-            <span class="dot dot-1"></span>
-            <span class="dot dot-2"></span>
-            <span class="dot dot-3"></span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="12" fill="#FF385C"/>
+                <path d="M12 6C9.5 6 7.5 8.2 7.5 10.5C7.5 14.5 12 18 12 18C12 18 16.5 14.5 16.5 10.5C16.5 8.2 14.5 6 12 6Z" fill="white"/>
+            </svg>
             Boom Schnugg
         </div>
         <ul class="nav-links">
@@ -460,118 +498,135 @@
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-bg-shapes">
-        <div class="hero-shape hero-shape-1"></div>
-        <div class="hero-shape hero-shape-2"></div>
-        <div class="hero-shape hero-shape-3"></div>
-        <div class="hero-shape hero-shape-4"></div>
-        <div class="hero-shape hero-shape-5"></div>
-    </div>
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span class="sparkle">✨</span> Future Fabulous Since 2017
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-eyebrow">Boom Schnugg Family Foundation</div>
+            <h1>Growing kindness,<br>building belonging.</h1>
+            <p class="hero-desc">We're a family of six championing the organizations that lift up kids, strengthen communities, and push the boundaries of what's possible in medicine and education.</p>
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-num">9</div>
+                    <div class="hero-stat-label">Organizations supported</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">6</div>
+                    <div class="hero-stat-label">Core values</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">6</div>
+                    <div class="hero-stat-label">Schnuggs & counting</div>
+                </div>
+            </div>
         </div>
-        <h1>Boom Schnugg<br>Family <span class="highlight">Foundation</span></h1>
-        <p class="hero-sub">Planting seeds of kindness, growing communities, and championing the organizations that make the world brighter for every kid.</p>
-        <div class="hero-colors">
-            <span class="hero-color-dot" style="background:var(--coral)"></span>
-            <span class="hero-color-dot" style="background:var(--sunshine)"></span>
-            <span class="hero-color-dot" style="background:var(--sky)"></span>
-            <span class="hero-color-dot" style="background:var(--lime)"></span>
-            <span class="hero-color-dot" style="background:var(--pink)"></span>
-            <span class="hero-color-dot" style="background:var(--lavender)"></span>
+        <div class="hero-mosaic">
+            <div class="mosaic-tile mosaic-tile-1">
+                <div class="mosaic-tile-inner">
+                    <span class="mosaic-emoji">❤️</span>
+                    <span>Future Fabulous<br>Since 2017</span>
+                </div>
+            </div>
+            <div class="mosaic-tile mosaic-tile-2">
+                <div class="mosaic-tile-inner">
+                    <span class="mosaic-emoji">🌱</span>
+                    <span>Plant seeds</span>
+                </div>
+            </div>
+            <div class="mosaic-tile mosaic-tile-3">
+                <div class="mosaic-tile-inner">
+                    <span class="mosaic-emoji">✨</span>
+                    <span>Dream big</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- MISSION -->
-<section class="mission" id="mission">
+<div class="divider"></div>
+
+<!-- MISSION / VALUES -->
+<section class="values" id="mission">
     <div class="container">
-        <div class="section-label">
-            <span class="icon">💛</span> Our Mission
+        <div class="section-header">
+            <div class="section-eyebrow">Our Mission</div>
+            <h2 class="section-title">What drives us</h2>
+            <p class="section-desc">Six values that shape every decision — from the causes we champion to how we show up for our community.</p>
         </div>
-        <h2 class="section-title">What we believe in</h2>
-        <p class="section-desc">Six values that guide everything we do — from the causes we champion to the way we raise our kids.</p>
 
         <div class="values-grid">
             <div class="value-card">
-                <span class="value-emoji">🌱</span>
+                <div class="value-icon vi-sage">🌱</div>
                 <h3>Growth</h3>
                 <p>Every person has boundless potential. We invest in opportunities that help people bloom into their best selves.</p>
-                <span class="tag tag-lime">Always Growing</span>
             </div>
             <div class="value-card">
-                <span class="value-emoji">🏘️</span>
+                <div class="value-icon vi-coral">🏘️</div>
                 <h3>Community</h3>
-                <p>Strong neighborhoods build strong futures. We strengthen the places where families gather, learn, and thrive together.</p>
-                <span class="tag tag-sky">Stronger Together</span>
+                <p>Strong neighborhoods build strong futures. We strengthen the places where families gather, learn, and thrive.</p>
             </div>
             <div class="value-card">
-                <span class="value-emoji">📚</span>
+                <div class="value-icon vi-sky">📚</div>
                 <h3>Education</h3>
                 <p>Learning opens every door. We back programs that give kids the tools to dream bigger and reach further.</p>
-                <span class="tag tag-sunshine">Knowledge is Power</span>
             </div>
             <div class="value-card">
-                <span class="value-emoji">💕</span>
+                <div class="value-icon vi-peach">💛</div>
                 <h3>Kindness</h3>
-                <p>Small acts of kindness ripple outward. We believe generosity and compassion can transform the world.</p>
-                <span class="tag tag-pink">Lead with Love</span>
+                <p>Small acts ripple outward. We believe generosity and compassion can transform the world, one gesture at a time.</p>
             </div>
             <div class="value-card">
-                <span class="value-emoji">🚀</span>
+                <div class="value-icon vi-lavender">🚀</div>
                 <h3>Innovation</h3>
-                <p>Bold ideas change lives. We champion research and creativity that push the boundaries of what's possible.</p>
-                <span class="tag tag-lavender">Think Big</span>
+                <p>Bold ideas change lives. We champion the research and creativity pushing boundaries of what's possible.</p>
             </div>
             <div class="value-card">
-                <span class="value-emoji">🌿</span>
+                <div class="value-icon vi-teal">🌿</div>
                 <h3>Nature</h3>
-                <p>The natural world is our greatest classroom. We nurture a love for the outdoors and protect it for future generations.</p>
-                <span class="tag tag-coral">Wonder Outside</span>
+                <p>The outdoors is our greatest classroom. We nurture wonder for the natural world and protect it for future generations.</p>
             </div>
         </div>
     </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- ORGANIZATIONS -->
 <section class="orgs" id="orgs">
     <div class="container">
-        <div class="section-label">
-            <span class="icon">🤝</span> Organizations We Champion
+        <div class="section-header">
+            <div class="section-eyebrow">Organizations We Champion</div>
+            <h2 class="section-title">Where our hearts go</h2>
+            <p class="section-desc">We're proud to support organizations doing extraordinary work for children, families, and the future of medicine.</p>
         </div>
-        <h2 class="section-title">Where our hearts go</h2>
-        <p class="section-desc">We're proud to support organizations doing extraordinary work in education, community building, and medical research.</p>
 
-        <div class="org-category">
-            <div class="org-category-header">
-                <div class="org-category-icon edu">📖</div>
-                <h3>Community & Education <span>— lifting up the next generation</span></h3>
+        <div class="org-group">
+            <div class="org-group-label">
+                <span class="dot dot-coral"></span>
+                Community & Education
             </div>
-            <div class="org-grid">
+            <div class="org-list">
                 <div class="org-card">
-                    <div class="org-icon oc-blue">🏀</div>
+                    <div class="org-badge">🏀</div>
                     <div>
                         <h4>Boys & Girls Club of the Peninsula</h4>
                         <p>After-school programs empowering youth to reach their full potential</p>
                     </div>
                 </div>
                 <div class="org-card">
-                    <div class="org-icon oc-green">🌉</div>
+                    <div class="org-badge">🌉</div>
                     <div>
                         <h4>Peninsula Bridge</h4>
-                        <p>Bridging the opportunity gap for underserved students through academic enrichment</p>
+                        <p>Bridging the opportunity gap for underserved students through enrichment</p>
                     </div>
                 </div>
                 <div class="org-card">
-                    <div class="org-icon oc-yellow">🌲</div>
+                    <div class="org-badge">🌲</div>
                     <div>
                         <h4>Forest Club of Woodside</h4>
                         <p>Connecting families and nature in our local Woodside community</p>
                     </div>
                 </div>
                 <div class="org-card">
-                    <div class="org-icon oc-pink">🎒</div>
+                    <div class="org-badge">🎒</div>
                     <div>
                         <h4>Stanford Bing Nursery School</h4>
                         <p>World-class early childhood education grounded in research and play</p>
@@ -580,45 +635,45 @@
             </div>
         </div>
 
-        <div class="org-category">
-            <div class="org-category-header">
-                <div class="org-category-icon med">❤️‍🩹</div>
-                <h3>Medical & Research <span>— advancing care and cures</span></h3>
+        <div class="org-group">
+            <div class="org-group-label">
+                <span class="dot dot-teal"></span>
+                Medical & Research
             </div>
-            <div class="org-grid">
+            <div class="org-list">
                 <div class="org-card">
-                    <div class="org-icon oc-red">🏥</div>
+                    <div class="org-badge">🏥</div>
                     <div>
                         <h4>Children's Hospital of Philadelphia</h4>
                         <p>Pioneering pediatric medicine and breakthrough treatments for children</p>
                     </div>
                 </div>
                 <div class="org-card">
-                    <div class="org-icon oc-teal">🏥</div>
+                    <div class="org-badge">🏥</div>
                     <div>
                         <h4>Boston Children's Hospital</h4>
                         <p>Leading innovation in pediatric healthcare and life-saving research</p>
                     </div>
                 </div>
                 <div class="org-card">
-                    <div class="org-icon oc-purple">🔬</div>
+                    <div class="org-badge">🔬</div>
                     <div>
                         <h4>Dana-Farber Cancer Institute</h4>
                         <p>World-renowned cancer research and compassionate patient care</p>
                     </div>
                 </div>
                 <div class="org-card">
-                    <div class="org-icon oc-orange">🎓</div>
+                    <div class="org-badge">🎓</div>
                     <div>
                         <h4>Stanford University / Medical</h4>
-                        <p>Advancing education and medical science at one of the world's great universities</p>
+                        <p>Advancing education and medical science at a world-class institution</p>
                     </div>
                 </div>
                 <div class="org-card">
-                    <div class="org-icon oc-indigo">🧬</div>
+                    <div class="org-badge">🧬</div>
                     <div>
                         <h4>Snyder Lab — Stanford Genomics</h4>
-                        <p>Cutting-edge genomics research unlocking the future of personalized medicine</p>
+                        <p>Cutting-edge genomics unlocking the future of personalized medicine</p>
                     </div>
                 </div>
             </div>
@@ -629,68 +684,65 @@
 <!-- FAMILY -->
 <section class="family" id="family">
     <div class="container">
-        <div class="section-label">
-            <span class="icon">👨‍👩‍👧‍👦</span> Meet the Schnuggs
+        <div class="section-header">
+            <div class="section-eyebrow">Meet the Schnuggs</div>
+            <h2 class="section-title">The family behind the foundation</h2>
+            <p class="section-desc">A family of six that believes in giving big, dreaming bigger, and having a whole lot of fun along the way.</p>
         </div>
-        <h2 class="section-title">The family behind the mission</h2>
-        <p class="section-desc">A family of six that believes in giving big, dreaming bigger, and having a whole lot of fun along the way.</p>
 
-        <div class="family-layout">
-            <div class="family-main">
-                <div class="parent-section">
-                    <div class="parent-name">Scott Schnugg</div>
-                    <div class="parent-role">Managing Director, PNC Capital Markets</div>
-                    <div class="parent-details">
-                        <span class="detail-chip">🎓 Georgia Tech</span>
-                        <span class="detail-chip">🎾 NCAA Tennis</span>
-                        <span class="detail-chip">📈 Capital Markets</span>
-                    </div>
-                </div>
-                <div class="family-divider"></div>
-                <div class="parent-section">
-                    <div class="parent-name">Cee Cee Schnugg</div>
-                    <div class="parent-role">Venture Capitalist, Boom Capital</div>
-                    <div class="parent-details">
-                        <span class="detail-chip">🚀 Boom Capital</span>
-                        <span class="detail-chip">💡 Venture Capital</span>
-                        <span class="detail-chip">✨ Future Fabulous</span>
-                    </div>
+        <div class="family-grid">
+            <div class="parent-card">
+                <div class="parent-avatar pa-scott">👨‍💼</div>
+                <h3>Scott Schnugg</h3>
+                <div class="parent-role">Managing Director, PNC Capital Markets</div>
+                <p class="parent-bio">Leading capital markets strategy with a passion for community and family. Former NCAA tennis player with a competitive spirit channeled into making an impact.</p>
+                <div class="parent-tags">
+                    <span class="ptag">Georgia Tech</span>
+                    <span class="ptag">NCAA Tennis</span>
+                    <span class="ptag">Capital Markets</span>
                 </div>
             </div>
 
-            <div class="family-kids">
-                <div class="kid-card kid-1">
-                    <div class="kid-avatar">⭐</div>
-                    <div>
+            <div class="parent-card">
+                <div class="parent-avatar pa-ceecee">👩‍💼</div>
+                <h3>Cee Cee Schnugg</h3>
+                <div class="parent-role">Venture Capitalist, Boom Capital</div>
+                <p class="parent-bio">Building the future through venture capital, backing bold founders and breakthrough ideas. The visionary force behind "future fabulous."</p>
+                <div class="parent-tags">
+                    <span class="ptag">Boom Capital</span>
+                    <span class="ptag">Venture Capital</span>
+                    <span class="ptag">Future Fabulous</span>
+                </div>
+            </div>
+
+            <div class="kids-banner">
+                <h3>The next generation of Schnuggs</h3>
+                <div class="kids-row">
+                    <div class="kid">
+                        <div class="kid-avatar ka-1">⭐</div>
                         <div class="kid-name">Atlas</div>
-                        <div class="kid-age">7 years old — the explorer</div>
+                        <div class="kid-detail">7 · The Explorer</div>
                     </div>
-                </div>
-                <div class="kid-card kid-2">
-                    <div class="kid-avatar">🎀</div>
-                    <div>
+                    <div class="kid">
+                        <div class="kid-avatar ka-2">🎀</div>
                         <div class="kid-name">Allegra</div>
-                        <div class="kid-age">6 years old — the joyful one</div>
+                        <div class="kid-detail">6 · The Joyful One</div>
                     </div>
-                </div>
-                <div class="kid-card kid-3">
-                    <div class="kid-avatar">💜</div>
-                    <div>
+                    <div class="kid">
+                        <div class="kid-avatar ka-3">💜</div>
                         <div class="kid-name">Astra</div>
-                        <div class="kid-age">3 years old — the stargazer</div>
+                        <div class="kid-detail">3 · The Stargazer</div>
                     </div>
-                </div>
-                <div class="kid-card kid-4">
-                    <div class="kid-avatar">🌊</div>
-                    <div>
+                    <div class="kid">
+                        <div class="kid-avatar ka-4">🌊</div>
                         <div class="kid-name">Aero</div>
-                        <div class="kid-age">5 months old — the newest Schnugg</div>
+                        <div class="kid-detail">5 mo · The Newest</div>
                     </div>
                 </div>
             </div>
 
-            <div class="family-location">
-                <p>🌳 Rooted in <span class="loc">Woodside, California</span> — where the redwoods meet the future.</p>
+            <div class="location-strip">
+                <p>🌳 Rooted in <strong>Woodside, California</strong> — where the redwoods meet the future.</p>
             </div>
         </div>
     </div>
@@ -698,17 +750,12 @@
 
 <!-- FOOTER -->
 <footer>
-    <div class="container">
-        <div class="footer-name">Boom Schnugg Family Foundation</div>
-        <div class="footer-dots">
-            <span class="footer-dot" style="background:var(--coral)"></span>
-            <span class="footer-dot" style="background:var(--sunshine)"></span>
-            <span class="footer-dot" style="background:var(--sky)"></span>
-            <span class="footer-dot" style="background:var(--lime)"></span>
-            <span class="footer-dot" style="background:var(--pink)"></span>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <span class="footer-logo">Boom Schnugg</span>
+            <span class="footer-copy">© 2025 Boom Schnugg Family Foundation</span>
         </div>
-        <p>Growing kindness, one bold step at a time. 🌱</p>
-        <p style="margin-top:16px; opacity:0.5;">© 2025 Boom Schnugg Family Foundation. All rights reserved.</p>
+        <div class="footer-tagline">Growing kindness, one bold step at a time. ❤️</div>
     </div>
 </footer>
 
