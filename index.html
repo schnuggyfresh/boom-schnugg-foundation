@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boom Schnugg Family Foundation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hot-pink: #FF2D78;
+            --electric-blue: #3B82F6;
+            --vivid-purple: #8B5CF6;
+            --bright-orange: #FF6B2C;
+            --vivid-yellow: #FBBF24;
+            --lime-green: #34D399;
+            --cyan: #06B6D4;
+            --dark: #0F0F1A;
+            --dark-card: #1A1A2E;
+            --light: #F8FAFC;
+            --gray-400: #9CA3AF;
+            --gray-600: #4B5563;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.25rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 26, 0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--hot-pink), var(--vivid-purple), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 45, 120, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(52, 211, 153, 0.08) 0%, transparent 40%);
+            animation: aurora 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes aurora {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-2%, 1%) rotate(1deg); }
+            100% { transform: translate(1%, -1%) rotate(-1deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            background: rgba(255, 45, 120, 0.12);
+            border: 1px solid rgba(255, 45, 120, 0.25);
+            color: var(--hot-pink);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--hot-pink);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--hot-pink), var(--bright-orange), var(--vivid-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .gradient-text-2 {
+            background: linear-gradient(135deg, var(--electric-blue), var(--vivid-purple), var(--hot-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--hot-pink), var(--vivid-purple));
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 45, 120, 0.35);
+        }
+
+        .btn-ghost {
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SECTION LAYOUT */
+        section {
+            padding: 7rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-label.pink { color: var(--hot-pink); }
+        .section-label.blue { color: var(--electric-blue); }
+        .section-label.green { color: var(--lime-green); }
+        .section-label.purple { color: var(--vivid-purple); }
+        .section-label.orange { color: var(--bright-orange); }
+
+        .section-label .line {
+            width: 24px;
+            height: 2px;
+            border-radius: 2px;
+        }
+
+        .section-label.pink .line { background: var(--hot-pink); }
+        .section-label.blue .line { background: var(--electric-blue); }
+        .section-label.green .line { background: var(--lime-green); }
+        .section-label.purple .line { background: var(--vivid-purple); }
+        .section-label.orange .line { background: var(--bright-orange); }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 3.5rem;
+        }
+
+        /* DIVIDER */
+        .section-divider {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+        }
+
+        /* VALUES GRID */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            border-radius: 16px;
+            background: var(--dark-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 16px 16px 0 0;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .value-card:hover::before { opacity: 1; }
+
+        .value-card:hover {
+            border-color: rgba(255,255,255,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .value-card:nth-child(1)::before { background: linear-gradient(90deg, var(--lime-green), var(--cyan)); }
+        .value-card:nth-child(2)::before { background: linear-gradient(90deg, var(--electric-blue), var(--vivid-purple)); }
+        .value-card:nth-child(3)::before { background: linear-gradient(90deg, var(--vivid-yellow), var(--bright-orange)); }
+        .value-card:nth-child(4)::before { background: linear-gradient(90deg, var(--hot-pink), var(--vivid-purple)); }
+        .value-card:nth-child(5)::before { background: linear-gradient(90deg, var(--cyan), var(--electric-blue)); }
+        .value-card:nth-child(6)::before { background: linear-gradient(90deg, var(--lime-green), var(--vivid-yellow)); }
+
+        .value-icon {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .value-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        /* ORGS */
+        .orgs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .org-category {
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: var(--dark-card);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .org-category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .org-category-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .org-category:first-child .org-category-icon {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+        }
+
+        .org-category:last-child .org-category-icon {
+            background: linear-gradient(135deg, rgba(255, 45, 120, 0.2), rgba(255, 107, 44, 0.2));
+        }
+
+        .org-category-header h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .org-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+
+        .org-item {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .org-item:hover {
+            background: rgba(255,255,255,0.04);
+        }
+
+        .org-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: none;
+        }
+
+        .org-category:first-child .org-dot { background: var(--electric-blue); }
+        .org-category:last-child .org-dot { background: var(--hot-pink); }
+
+        .org-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 6px;
+            overflow: hidden;
+        }
+
+        .org-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .org-logo-emoji {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(52, 211, 153, 0.05));
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        .org-item span {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .org-item .org-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        .org-category:first-child .org-tag {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--electric-blue);
+        }
+
+        .org-category:last-child .org-tag {
+            background: rgba(255, 45, 120, 0.12);
+            color: var(--hot-pink);
+        }
+
+        /* FAMILY */
+        .family-section {
+            position: relative;
+        }
+
+        .family-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .family-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: var(--dark-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.35s ease;
+        }
+
+        .family-card:hover {
+            border-color: rgba(255,255,255,0.12);
+            transform: translateY(-3px);
+        }
+
+        .family-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .family-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .family-card:first-child .family-avatar {
+            background: linear-gradient(135deg, var(--electric-blue), var(--vivid-purple));
+        }
+
+        .family-card:last-child .family-avatar {
+            background: linear-gradient(135deg, var(--hot-pink), var(--bright-orange));
+        }
+
+        .family-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .family-role {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+
+        .family-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .family-tag {
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-400);
+            transition: all 0.25s ease;
+        }
+
+        .family-tag:hover {
+            border-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        /* KIDS */
+        .kids-banner {
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 45, 120, 0.08), rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .kids-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .kids-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .kid-chip {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 1rem;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .kid-chip:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
+        }
+
+        .kid-emoji { font-size: 1.5rem; }
+
+        .kid-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .kid-age {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+        }
+
+        .kid-chip:nth-child(1) { border-color: rgba(59, 130, 246, 0.2); }
+        .kid-chip:nth-child(2) { border-color: rgba(255, 45, 120, 0.2); }
+        .kid-chip:nth-child(3) { border-color: rgba(139, 92, 246, 0.2); }
+        .kid-chip:nth-child(4) { border-color: rgba(52, 211, 153, 0.2); }
+
+        /* FOOTER */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--hot-pink), var(--vivid-purple), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-tagline {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-location {
+            color: var(--gray-600);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom {
+            margin-top: 2.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        /* SCROLL ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 26, 0.97);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+            }
+            .mobile-toggle { display: block; }
+
+            section { padding: 4rem 1.25rem; }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .orgs-container {
+                grid-template-columns: 1fr;
+            }
+
+            .family-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kids-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero { padding: 7rem 1.25rem 4rem; }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary, .btn-ghost {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .values-grid { gap: 0.75rem; }
+            .value-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">BOOM SCHNUGG</div>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+        <ul class="nav-links">
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#champions">Champions</a></li>
+            <li><a href="#family">Family</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Family Foundation · Woodside, CA
+            </div>
+            <h1>
+                Build what<br>
+                <span class="gradient-text">matters most.</span>
+            </h1>
+            <p class="hero-sub">
+                The Boom Schnugg Family Foundation invests in community, champions education, and funds the research that changes lives.
+            </p>
+            <div class="hero-cta">
+                <a href="#champions" class="btn-primary">What We Support →</a>
+                <a href="#family" class="btn-ghost">Meet the Schnuggs</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- MISSION & VALUES -->
+    <section id="mission" class="fade-in">
+        <div class="section-label green">
+            <span class="line"></span>
+            Our Mission
+        </div>
+        <h2 class="section-title">Six things we believe in.</h2>
+        <p class="section-desc">
+            Every grant, every dollar, every hour of time — driven by the values that shape our family.
+        </p>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <span class="value-icon">🌱</span>
+                <h3>Growth</h3>
+                <p>Investing in potential — in people, communities, and ideas that are just getting started.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">🤝</span>
+                <h3>Community</h3>
+                <p>Strong neighborhoods build strong futures. We show up for the places we call home.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">📚</span>
+                <h3>Education</h3>
+                <p>Learning opens every door. We back programs that give kids the tools to thrive.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">💛</span>
+                <h3>Kindness</h3>
+                <p>It costs nothing and changes everything. Compassion is our first principle.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">⚡</span>
+                <h3>Innovation</h3>
+                <p>From venture capital to medical breakthroughs — we bet on the future.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">🌿</span>
+                <h3>Nature</h3>
+                <p>Living among the redwoods of Woodside, we protect the world our kids will inherit.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ORGANIZATIONS WE CHAMPION -->
+    <section id="champions" class="fade-in">
+        <div class="section-label blue">
+            <span class="line"></span>
+            Organizations We Champion
+        </div>
+        <h2 class="section-title">Where our dollars go.</h2>
+        <p class="section-desc">
+            We partner with organizations doing extraordinary work in education, community building, and medical research.
+        </p>
+
+        <div class="orgs-container">
+            <div class="org-category">
+                <div class="org-category-header">
+                    <div class="org-category-icon">🎓</div>
+                    <h3>Community &amp; Education</h3>
+                </div>
+                <ul class="org-list">
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://images.squarespace-cdn.com/content/v1/56ac05c2f8baf35958bd9f34/1479837697019-VI7WFDL902WWUKS773CJ/BGCP_LOGO+with+line+WHITE.png?format=300w" alt="Boys &amp; Girls Clubs of the Peninsula logo">
+                        </div>
+                        <span>Boys &amp; Girls Club of the Peninsula</span>
+                        <span class="org-tag">Youth</span>
+                    </li>
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://images.squarespace-cdn.com/content/v1/628ff86767fd18443bb09e47/7dbf11a9-759d-42f4-8e2a-bf6195ecd830/Logo_Grey_Rectangle.png?format=300w" alt="Peninsula Bridge logo">
+                        </div>
+                        <span>Peninsula Bridge</span>
+                        <span class="org-tag">Education</span>
+                    </li>
+                    <li class="org-item">
+                        <div class="org-logo-emoji">🌲</div>
+                        <span>Forest Club of Woodside</span>
+                        <span class="org-tag">Community</span>
+                    </li>
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Leland_Stanford_Junior_University.svg/250px-Seal_of_Leland_Stanford_Junior_University.svg.png" alt="Stanford University seal">
+                        </div>
+                        <span>Stanford Bing Nursery School</span>
+                        <span class="org-tag">Early Ed</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="org-category">
+                <div class="org-category-header">
+                    <div class="org-category-icon">🔬</div>
+                    <h3>Medical &amp; Research</h3>
+                </div>
+                <ul class="org-list">
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Children%27s_Hospital_of_Philadelphia_logo.svg/330px-Children%27s_Hospital_of_Philadelphia_logo.svg.png" alt="CHOP logo">
+                        </div>
+                        <span>Children's Hospital of Philadelphia</span>
+                        <span class="org-tag">Pediatrics</span>
+                    </li>
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/89/Boston_Children%27s_Hospital_logo.svg/250px-Boston_Children%27s_Hospital_logo.svg.png" alt="Boston Children's Hospital logo">
+                        </div>
+                        <span>Boston Children's Hospital</span>
+                        <span class="org-tag">Pediatrics</span>
+                    </li>
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Dana-Farber_Cancer_Institute_logo.svg/330px-Dana-Farber_Cancer_Institute_logo.svg.png" alt="Dana-Farber Cancer Institute logo">
+                        </div>
+                        <span>Dana-Farber Cancer Institute</span>
+                        <span class="org-tag">Oncology</span>
+                    </li>
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Leland_Stanford_Junior_University.svg/250px-Seal_of_Leland_Stanford_Junior_University.svg.png" alt="Stanford University seal">
+                        </div>
+                        <span>Stanford University / Medical</span>
+                        <span class="org-tag">Research</span>
+                    </li>
+                    <li class="org-item">
+                        <div class="org-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Leland_Stanford_Junior_University.svg/250px-Seal_of_Leland_Stanford_Junior_University.svg.png" alt="Stanford Snyder Lab">
+                        </div>
+                        <span>Snyder Lab — Stanford Genomics</span>
+                        <span class="org-tag">Genomics</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- MEET THE SCHNUGGS -->
+    <section id="family" class="family-section fade-in">
+        <div class="section-label pink">
+            <span class="line"></span>
+            Meet the Schnuggs
+        </div>
+        <h2 class="section-title">A family that builds.</h2>
+        <p class="section-desc">
+            Based in Woodside, California — where redwoods meet big dreams.
+        </p>
+
+        <div class="family-grid">
+            <div class="family-card">
+                <div class="family-card-header">
+                    <div class="family-avatar">S</div>
+                    <div>
+                        <div class="family-name">Scott Schnugg</div>
+                        <div class="family-role">Co-Founder</div>
+                    </div>
+                </div>
+                <div class="family-tags">
+                    <span class="family-tag">PNC Capital Markets — MD</span>
+                    <span class="family-tag">Georgia Tech</span>
+                    <span class="family-tag">NCAA Tennis</span>
+                </div>
+            </div>
+            <div class="family-card">
+                <div class="family-card-header">
+                    <div class="family-avatar">C</div>
+                    <div>
+                        <div class="family-name">Cee Cee Schnugg</div>
+                        <div class="family-role">Co-Founder</div>
+                    </div>
+                </div>
+                <div class="family-tags">
+                    <span class="family-tag">Boom Capital — VC</span>
+                    <span class="family-tag">Venture Builder</span>
+                    <span class="family-tag">Future Fabulous</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="kids-banner">
+            <div class="kids-title">✨ The Next Generation</div>
+            <div class="kids-grid">
+                <div class="kid-chip">
+                    <span class="kid-emoji">🌍</span>
+                    <span class="kid-name">Atlas</span>
+                    <span class="kid-age">Age 7</span>
+                </div>
+                <div class="kid-chip">
+                    <span class="kid-emoji">🎵</span>
+                    <span class="kid-name">Allegra</span>
+                    <span class="kid-age">Age 6</span>
+                </div>
+                <div class="kid-chip">
+                    <span class="kid-emoji">⭐</span>
+                    <span class="kid-name">Astra</span>
+                    <span class="kid-age">Age 3</span>
+                </div>
+                <div class="kid-chip">
+                    <span class="kid-emoji">🚀</span>
+                    <span class="kid-name">Aero</span>
+                    <span class="kid-age">5 months</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">BOOM SCHNUGG FAMILY FOUNDATION</div>
+        <p class="footer-tagline">Build what matters most.</p>
+        <p class="footer-location">📍 Woodside, California</p>
+        <div class="footer-bottom">
+            &copy; 2025 Boom Schnugg Family Foundation. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
