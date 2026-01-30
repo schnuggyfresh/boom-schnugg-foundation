@@ -261,57 +261,51 @@
 
         /* ═══════ ORGANIZATIONS ═══════ */
         .orgs { background: var(--cloud); }
-        .org-group { margin-bottom: 48px; }
-        .org-group:last-child { margin-bottom: 0; }
-        .org-group-label {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex; align-items: center; gap: 10px;
-            color: var(--hof);
-        }
-        .org-group-label .dot {
-            width: 8px; height: 8px;
-            border-radius: 50%;
-        }
-        .dot-coral { background: var(--rausch); }
-        .dot-teal { background: var(--babu); }
-
-        .org-list {
+        .logo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-        .org-card {
+        .logo-card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 24px;
-            display: flex; align-items: flex-start; gap: 16px;
+            padding: 32px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
             transition: box-shadow var(--transition), transform var(--transition);
-            border: 1px solid transparent;
+            border: 1px solid var(--hair);
         }
-        .org-card:hover {
+        .logo-card:hover {
             box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
-        .org-badge {
-            width: 44px; height: 44px; min-width: 44px;
-            border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.25rem;
-            background: var(--cloud);
+        .logo-card a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
         }
-        .org-card h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            letter-spacing: -0.01em;
+        .logo-card img {
+            max-width: 180px;
+            max-height: 80px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: opacity var(--transition);
         }
-        .org-card p {
-            font-size: 0.82rem;
-            color: var(--foggy);
-            line-height: 1.5;
+        .logo-card:hover img {
+            opacity: 0.85;
+        }
+        .logo-card.dark-bg {
+            background: #1a2744;
+            border-color: #1a2744;
+        }
+        .logo-card.dark-bg:hover img {
+            opacity: 0.9;
         }
 
         /* ═══════ FAMILY ═══════ */
@@ -457,6 +451,7 @@
             .hero-inner { grid-template-columns: 1fr; gap: 48px; }
             .hero-mosaic { max-width: 400px; }
             .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .logo-grid { grid-template-columns: repeat(3, 1fr); }
             .family-grid { grid-template-columns: 1fr; }
             .kids-row { grid-template-columns: repeat(2, 1fr); gap: 24px; }
         }
@@ -466,7 +461,7 @@
             .hero { padding: 100px 20px 60px; }
             section { padding: 64px 20px; }
             .values-grid { grid-template-columns: 1fr; }
-            .org-list { grid-template-columns: 1fr; }
+            .logo-grid { grid-template-columns: repeat(2, 1fr); }
             .hero-stats { gap: 24px; }
             .hero-stat-num { font-size: 1.5rem; }
             .kids-row { grid-template-columns: repeat(2, 1fr); }
@@ -593,89 +588,55 @@
 <section class="orgs" id="orgs">
     <div class="container">
         <div class="section-header">
-            <div class="section-eyebrow">Organizations We Champion</div>
-            <h2 class="section-title">Where our hearts go</h2>
-            <p class="section-desc">We're proud to support organizations doing extraordinary work for children, families, and the future of medicine.</p>
+            <div class="section-eyebrow">We Support</div>
+            <h2 class="section-title">Organizations we champion</h2>
         </div>
 
-        <div class="org-group">
-            <div class="org-group-label">
-                <span class="dot dot-coral"></span>
-                Community & Education
+        <div class="logo-grid">
+            <div class="logo-card dark-bg">
+                <a href="https://www.bgcp.org" target="_blank" rel="noopener" aria-label="Boys & Girls Clubs of the Peninsula">
+                    <img src="img/bgcp.png" alt="Boys & Girls Clubs of the Peninsula" loading="lazy">
+                </a>
             </div>
-            <div class="org-list">
-                <div class="org-card">
-                    <div class="org-badge">🏀</div>
-                    <div>
-                        <h4>Boys & Girls Club of the Peninsula</h4>
-                        <p>After-school programs empowering youth to reach their full potential</p>
-                    </div>
-                </div>
-                <div class="org-card">
-                    <div class="org-badge">🌉</div>
-                    <div>
-                        <h4>Peninsula Bridge</h4>
-                        <p>Bridging the opportunity gap for underserved students through enrichment</p>
-                    </div>
-                </div>
-                <div class="org-card">
-                    <div class="org-badge">🌲</div>
-                    <div>
-                        <h4>Forest Club of Woodside</h4>
-                        <p>Connecting families and nature in our local Woodside community</p>
-                    </div>
-                </div>
-                <div class="org-card">
-                    <div class="org-badge">🎒</div>
-                    <div>
-                        <h4>Stanford Bing Nursery School</h4>
-                        <p>World-class early childhood education grounded in research and play</p>
-                    </div>
-                </div>
+            <div class="logo-card">
+                <a href="https://www.peninsulabridge.org" target="_blank" rel="noopener" aria-label="Peninsula Bridge">
+                    <img src="img/peninsula-bridge.png" alt="Peninsula Bridge" loading="lazy">
+                </a>
             </div>
-        </div>
-
-        <div class="org-group">
-            <div class="org-group-label">
-                <span class="dot dot-teal"></span>
-                Medical & Research
+            <div class="logo-card">
+                <a href="#" aria-label="Forest Club of Woodside">
+                    <img src="img/forest-club.svg" alt="Forest Club of Woodside" loading="lazy">
+                </a>
             </div>
-            <div class="org-list">
-                <div class="org-card">
-                    <div class="org-badge">🏥</div>
-                    <div>
-                        <h4>Children's Hospital of Philadelphia</h4>
-                        <p>Pioneering pediatric medicine and breakthrough treatments for children</p>
-                    </div>
-                </div>
-                <div class="org-card">
-                    <div class="org-badge">🏥</div>
-                    <div>
-                        <h4>Boston Children's Hospital</h4>
-                        <p>Leading innovation in pediatric healthcare and life-saving research</p>
-                    </div>
-                </div>
-                <div class="org-card">
-                    <div class="org-badge">🔬</div>
-                    <div>
-                        <h4>Dana-Farber Cancer Institute</h4>
-                        <p>World-renowned cancer research and compassionate patient care</p>
-                    </div>
-                </div>
-                <div class="org-card">
-                    <div class="org-badge">🎓</div>
-                    <div>
-                        <h4>Stanford University / Medical</h4>
-                        <p>Advancing education and medical science at a world-class institution</p>
-                    </div>
-                </div>
-                <div class="org-card">
-                    <div class="org-badge">🧬</div>
-                    <div>
-                        <h4>Snyder Lab — Stanford Genomics</h4>
-                        <p>Cutting-edge genomics unlocking the future of personalized medicine</p>
-                    </div>
-                </div>
+            <div class="logo-card">
+                <a href="https://bingschool.stanford.edu" target="_blank" rel="noopener" aria-label="Stanford Bing Nursery School">
+                    <img src="img/bing-nursery.svg" alt="Stanford Bing Nursery School" loading="lazy">
+                </a>
+            </div>
+            <div class="logo-card">
+                <a href="https://www.chop.edu" target="_blank" rel="noopener" aria-label="Children's Hospital of Philadelphia">
+                    <img src="img/chop-logo.svg" alt="Children's Hospital of Philadelphia" loading="lazy">
+                </a>
+            </div>
+            <div class="logo-card">
+                <a href="https://www.childrenshospital.org" target="_blank" rel="noopener" aria-label="Boston Children's Hospital">
+                    <img src="img/boston-childrens.svg" alt="Boston Children's Hospital" loading="lazy">
+                </a>
+            </div>
+            <div class="logo-card">
+                <a href="https://www.dana-farber.org" target="_blank" rel="noopener" aria-label="Dana-Farber Cancer Institute">
+                    <img src="img/dana-farber.png" alt="Dana-Farber Cancer Institute" loading="lazy">
+                </a>
+            </div>
+            <div class="logo-card">
+                <a href="https://www.stanford.edu" target="_blank" rel="noopener" aria-label="Stanford University">
+                    <img src="img/stanford-seal.png" alt="Stanford University" loading="lazy">
+                </a>
+            </div>
+            <div class="logo-card">
+                <a href="https://med.stanford.edu/snyderlab.html" target="_blank" rel="noopener" aria-label="Snyder Lab — Stanford Genomics">
+                    <img src="img/snyder-lab.svg" alt="Snyder Lab — Stanford Genomics" loading="lazy">
+                </a>
             </div>
         </div>
     </div>
